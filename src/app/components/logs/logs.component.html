@@ -1,0 +1,10 @@
+<ul class="list-group mb-2" *ngIf="loaded && logs.length > 0">
+  <li *ngFor="let log of logs" [class.list-group-item-secondary]="selectedLog === log" class="list-group-item d-flex justify-content-between align-items-center mb-2">
+      <a (click)="onSelect(log)" href="#">{{ log.text }}</a>
+      <span class="log-date">{{ log.date | date: 'd/M/yy'}}</span>
+      <i (click)="onDelete(log)" class="fa fa-remove"></i>
+  </li>
+</ul>
+
+<h4 *ngIf="loaded && logs.length == 0">nu sunt task-uri</h4>
+<div *ngIf="!loaded">se incarca...</div>
